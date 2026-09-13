@@ -21,9 +21,14 @@
   </div>
   <nav class="nav">
     <div class="nav-inner">
-      {% for item in site.nav[site.phase] %}
-        <a href="#">{{ item }}</a>
-      {% endfor %}
+{% for item in site.nav[site.phase] %}
+  {% assign slug = item | downcase | replace: ' ', '-' %}
+  {% if slug == 'главная' %}
+    <a href="{{ '/' | relative_url }}">{{ item }}</a>
+  {% else %}
+    <a href="{{ '/' | append: slug | append: '/' | relative_url }}">{{ item }}</a>
+  {% endif %}
+{% endfor %}
     </div>
   </nav>
 </header>
