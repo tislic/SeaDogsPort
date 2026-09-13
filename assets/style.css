@@ -138,8 +138,9 @@ a{color:inherit}
   border-radius: 0;
 }
 .post-cover img {
-  width: auto;
+  width: 100%;
   height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
   transition: transform .4s ease;
