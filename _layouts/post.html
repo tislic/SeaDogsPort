@@ -3,10 +3,18 @@ layout: default
 ---
 
 <article class="panel post" style="padding: 40px;">
+
+  {% if page.image %}
+    <div class="post-hero">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+  {% endif %}
+
   <div class="meta">
     {{ page.date | date: "%d.%m.%Y" }}
     {% if page.version %} · {{ page.version }}{% endif %}
   </div>
+
   <h1 style="font-size:2rem; font-weight:normal; margin:10px 0 20px;">{{ page.title }}</h1>
 
   <div class="post-content" style="color:#4d5357; line-height:1.75;">
@@ -22,4 +30,5 @@ layout: default
   <p style="margin-top:30px;">
     <a class="read" href="{{ '/' | relative_url }}">← Все записи</a>
   </p>
+
 </article>
