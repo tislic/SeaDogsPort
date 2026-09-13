@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Почему в игре нет компаса — Порт Корсаров на Android</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#20252a;--muted:#70777d;--paper:#f3f0e8;--card:#fffdf8;--line:#d8d2c5;--sea:#263f49;--gold:#b18a3b;--rust:#8d4d3d}
+body{font-family:Georgia,"Times New Roman",serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:18px}
+a{color:inherit}
+.header{background:var(--sea);color:#f8f4e9;border-bottom:5px solid var(--gold)}
+.header-inner{max-width:1080px;margin:auto;padding:34px 24px 28px}
+.brand{display:flex;justify-content:space-between;align-items:end;gap:24px}
+.brand h1{font-size:2.25rem;font-weight:normal;letter-spacing:.5px}
+.brand p{color:#c9d0d1;font-size:.95rem;font-style:italic}
+.nav{background:#1e3239;border-top:1px solid rgba(255,255,255,.08)}
+.nav-inner{max-width:1080px;margin:auto;padding:0 24px;display:flex;gap:28px}
+.nav a{color:#dbe0df;text-decoration:none;padding:13px 0;font-family:Arial,sans-serif;font-size:.82rem;text-transform:uppercase;letter-spacing:.9px}
+.nav a:hover{color:#e0bb67}
+.wrap{max-width:820px;margin:46px auto;padding:0 24px}
+.article{background:var(--card);border:1px solid var(--line);box-shadow:0 4px 16px rgba(35,35,25,.06);padding:46px 54px}
+.meta{font-family:Arial,sans-serif;font-size:.74rem;text-transform:uppercase;letter-spacing:.8px;color:#858b8d;margin-bottom:14px}
+h2{font-size:2.65rem;font-weight:normal;line-height:1.15;margin-bottom:28px}
+.lead{font-size:1.18rem;color:#4f565a;margin-bottom:28px}
+p{margin:0 0 22px;color:#41484c}
+strong{color:var(--ink)}
+blockquote{border-left:3px solid var(--gold);margin:28px 0;padding:12px 24px;color:#4f565a;font-style:italic;background:#f7f3e9}
+.article ul{margin:0 0 24px 25px;color:#41484c}
+.article li{margin-bottom:7px}
+.back{display:inline-block;margin-top:12px;font-family:Arial,sans-serif;font-size:.8rem;color:var(--rust);text-decoration:none}
+.footer{margin-top:55px;background:var(--sea);color:#aeb9bb;padding:28px 24px;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
+@media(max-width:760px){.brand{display:block}.brand p{margin-top:5px}.wrap{padding:0 15px;margin-top:25px}.article{padding:30px 24px}h2{font-size:2rem}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <div>
+        <h1>Порт Корсаров на Android</h1>
+        <p>Дневник проекта</p>
+      </div>
+    </div>
+  </div>
+  <nav class="nav"><div class="nav-inner"><a href="index.html">Главная</a><a href="index.html#postsFeed">Материалы</a></div></nav>
+</header>
+<main class="wrap">
+<article class="article">
+  <div class="meta">Материал · Contrabandist</div>
+  <h2>Почему в игре нет компаса</h2>
+  <p class="lead">Идея визуализации ветра пришла не на пустом месте. Одним из ориентиров для меня был <em>Ghost of Tsushima</em> — AAA-игра, в которой ветер стал частью визуального языка мира. Это сразу задаёт определённую планку.</p>
+  <p>Но для игры про парусники мне хотелось пойти дальше.</p>
+  <p>В привычных играх про пиратов всё довольно просто: море, корабль, паруса и стрелка, показывающая направление ветра. Игрок смотрит на неё, управляет кораблём и постепенно привыкает воспринимать происходящее как реалистичное плавание.</p>
+  <p>И здесь возникает интересный вопрос:</p>
+  <p><strong>А действительно ли он видел ветер?</strong></p>
+  <p>Представьте, что вы стоите за штурвалом. Вокруг море, над вами паруса, вы смотрите на направление ветра и думаете:</p>
+  <blockquote><strong>«Я — капитан. Я иду под парусом».</strong></blockquote>
+  <p>Вы действительно можете почувствовать себя капитаном.</p>
+  <p>Но 🤯 — что именно вы всё это время видели?</p>
+  <p><strong>Стрелку.</strong></p>
+  <p>Она сообщала направление, а остальное дорисовывало ваше воображение.</p>
+  <p>Я сам когда-то испытал похожее с <em>Batman: Arkham Asylum</em>. Я прошёл игру примерно на 95% на видеокарте Radeon и считал, что хорошо знаю, как она выглядит. А потом увидел на YouTube демонстрацию работы PhysX.</p>
+  <p>И понял: <strong>я играл в эту игру, но целого слоя её визуального поведения просто не видел.</strong></p>
+  <p>Вот тогда появляется 💡:</p>
+  <blockquote><strong>«Так вот чего мне раньше не хватало».</strong></blockquote>
+  <p>С ветром я захотел сделать не ещё один такой же указатель.</p>
+  <p>Технически я мог сделать правильный компас. Мог показать стороны света, направление ветра и дать игроку привычный навигационный прибор.</p>
+  <p>Но тогда игрок снова смотрел бы на прибор.</p>
+  <p>А мне хотелось, чтобы он увидел <strong>сам ветер</strong>.</p>
+  <p>И здесь есть принципиальная вещь.</p>
+  <p><strong>Независимо от того, включена визуализация ветра или нет, сам ветер взаимодействует с кораблём:</strong></p>
+  <ul>
+    <li>изменяет скорость;</li>
+    <li>поворачивает реи при смене галса;</li>
+    <li>разворачивает флаги;</li>
+    <li>наполняет паруса.</li>
+  </ul>
+  <p>То есть визуализация не создаёт ветер и не делает его реалистичным сама по себе. Она делает <strong>видимым то, что уже происходит с кораблём</strong>.</p>
+  <p>Поэтому в игре нет компаса, который просто сообщает направление ветра. Ветер становится частью самого мира парусника.</p>
+  <p>Его можно увидеть. Можно увидеть, как он воздействует на паруса, реи и флаги. Когда корабль меняет курс, меняется и поведение парусного вооружения. А когда корабль выходит прямо против ветра, паруса начинают полоскаться.</p>
+  <p>Здесь появляется ещё одна морская деталь.</p>
+  <p>Моряк называет ветер по тому, <strong>откуда он дует</strong>. Если воздух движется с северо-запада на юго-восток — это северо-западный ветер.</p>
+  <p>А визуальный поток показывает игроку непосредственно движение воздуха — <strong>куда он идёт</strong>.</p>
+  <p>И получается интересный парадокс.</p>
+  <p>Вы могли десятки часов играть в парусные игры, смотреть на стрелку и искренне считать, что понимаете ветер.</p>
+  <p>Вы могли представить себя капитаном.</p>
+  <p>Но 🤯 — возможно, всё это время вы видели не сам ветер.</p>
+  <p><strong>Вы видели только его обозначение.</strong></p>
+  <p>И тогда появляется 💡:</p>
+  <blockquote><strong>«Так вот чего мне раньше не хватало — самого ветра».</strong></blockquote>
+  <a class="back" href="index.html">← Вернуться на главную</a>
+</article>
+</main>
+<footer class="footer">Порт Корсаров на Android · Дневник проекта</footer>
+</body>
+</html>
