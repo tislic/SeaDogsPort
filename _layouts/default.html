@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title | default: site.title }}</title>
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body class="phase-{{ site.phase }}">
+
+<header class="header">
+  <div class="header-inner">
+    <img class="header-logo"
+         src="{{ '/design/logo.png' | relative_url }}"
+         alt="Логотип Порт Корсаров"
+         onerror="this.style.display='none'">
+    <div class="header-text">
+      <h1>{{ site.title }}</h1>
+      <p>{{ site.description }}</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="nav-inner">
+      {% for item in site.nav[site.phase] %}
+        <a href="#">{{ item }}</a>
+      {% endfor %}
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  {{ content }}
+</main>
+
+<footer class="footer">
+  {{ site.title }} · {{ site.description }}
+</footer>
+
+</body>
+</html>
