@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ page.title | default: site.title }}</title>
 <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+ <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+
+<!-- Для iPhone / iPad -->
+<link rel="apple-touch-icon" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}">
+
+<!-- Для Android -->
+<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/icons/icon-192.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/icons/icon-512.png' | relative_url }}">
+
+<meta name="theme-color" content="#263f49">
+
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}"> 
 </head>
 <body class="phase-{{ site.phase }}">
 
