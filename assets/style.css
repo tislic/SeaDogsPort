@@ -138,7 +138,7 @@ a{color:inherit}
   border-radius: 0;
 }
 .post-cover img {
-  width: 100%;
+  width: auto;
   height: auto;
   object-fit: cover;
   display: block;
