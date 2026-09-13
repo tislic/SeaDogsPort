@@ -32,29 +32,29 @@ a{color:inherit}
 .header-inner{
   max-width:1080px;
   margin:auto;
-  padding:26px 24px;
+  padding:28px 24px;
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:24px;
 }
 .header-logo{
-  width:80px;
-  height:80px;
+  width:100px;
+  height:100px;
   object-fit:contain;
   flex-shrink:0;
   filter:drop-shadow(0 2px 6px rgba(0,0,0,.35));
 }
 .header-text h1{
-  font-size:2.4rem;
+  font-size:3rem;
   font-weight:normal;
   letter-spacing:.5px;
-  line-height:1.15;
+  line-height:1.1;
 }
 .header-text p{
   color:#c9d0d1;
-  font-size:1.05rem;
+  font-size:1.25rem;
   font-style:italic;
-  margin-top:3px;
+  margin-top:4px;
 }
 
 /* ═══ НАВИГАЦИЯ ═══ */
@@ -112,24 +112,24 @@ a{color:inherit}
 
 .footer{margin-top:55px;background:var(--sea);color:#aeb9bb;padding:28px 24px;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
 
-/* ═══ МОБИЛЬНАЯ ВЕРСИЯ ═══ */
+/* ═══ МОБИЛЬНАЯ ВЕРСИЯ — крупный заголовок, крупный логотип ═══ */
 @media(max-width:760px){
   .header-inner{
-    padding:12px 15px;
-    gap:10px;
+    padding:14px 15px;
+    gap:12px;
   }
   .header-logo{
-    width:40px;
-    height:40px;
+    width:64px;
+    height:64px;
   }
   .header-text h1{
-    font-size:1rem;
+    font-size:1.8rem;
     line-height:1.15;
     letter-spacing:0;
   }
   .header-text p{
-    font-size:.68rem;
-    margin-top:1px;
+    font-size:.95rem;
+    margin-top:2px;
   }
   .wrap{
     padding:0 15px;
@@ -153,7 +153,6 @@ a{color:inherit}
 
 <header class="header">
   <div class="header-inner">
-    <!-- Логотип лежит в папке design рядом с index.html -->
     <img class="header-logo"
          src="design/logo.png"
          alt="Логотип Порт Корсаров"
