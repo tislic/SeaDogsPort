@@ -58,7 +58,12 @@ a{color:inherit}
 
 .wrap{max-width:1080px;margin:34px auto;padding:0 24px}
 .current{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;margin-bottom:34px}
-.panel{background:var(--card);border:1px solid var(--line);box-shadow:0 4px 16px rgba(35,35,25,.06)}
+.panel{background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 4px 16px rgba(35,35,25,.06);
+  border-radius:8px;
+  overflow:hidden;   /* ← чтобы картинки не вылезали за скруглённые углы */
+}
 .hero{padding:34px}
 .kicker{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1.2px;font-size:.75rem;color:var(--rust);margin-bottom:9px}
 .hero h2{font-size:2.25rem;font-weight:normal;line-height:1.15;margin-bottom:16px}
