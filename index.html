@@ -22,29 +22,15 @@ body{
   line-height:1.65; font-size:17px;
 }
 a{color:inherit}
-
-/* ═══ ШАПКА С КАРТИНКОЙ ═══ */
-.header{
-  background:#0a0a12;
-  border-bottom:5px solid var(--gold);
-}
-.header-banner{
-  width:100%;
-  overflow:hidden;
-  display:block;
-}
-.header-banner img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-/* ═══ НАВИГАЦИЯ ═══ */
+.header{background:var(--sea); color:#f8f4e9; border-bottom:5px solid var(--gold);}
+.header-inner{max-width:1080px;margin:auto;padding:34px 24px 28px}
+.brand{display:flex;justify-content:space-between;align-items:end;gap:24px}
+.brand h1{font-size:2.25rem;font-weight:normal;letter-spacing:.5px}
+.brand p{color:#c9d0d1;font-size:.95rem;font-style:italic}
 .nav{background:#1e3239;border-top:1px solid rgba(255,255,255,.08);}
 .nav-inner{max-width:1080px;margin:auto;padding:0 24px;display:flex;gap:28px}
 .nav a{color:#dbe0df;text-decoration:none;padding:13px 0;font-family:Arial,sans-serif;font-size:.82rem;text-transform:uppercase;letter-spacing:.9px}
 .nav a:hover{color:#e0bb67}
-
 .wrap{max-width:1080px;margin:34px auto;padding:0 24px}
 .current{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;margin-bottom:34px}
 .panel{background:var(--card);border:1px solid var(--line);box-shadow:0 4px 16px rgba(35,35,25,.06)}
@@ -61,22 +47,22 @@ a{color:inherit}
 .status-row{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:11px 0}
 .status-row span:first-child{color:var(--muted);font-family:Arial,sans-serif;font-size:.78rem;text-transform:uppercase}
 .status-row span:last-child{text-align:right}
-
+/* ── Полоса прогресса ── */
 .progress-wrap{padding:22px 28px;margin-bottom:34px}
 .progress-wrap h3{font-weight:normal;font-size:1.1rem;margin-bottom:14px}
 .progress-track{background:#e6e1d5;height:10px;border-radius:5px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),#d4b266);border-radius:5px;transition:width .8s ease}
-
+/* ── Возможности (release) ── */
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:16px}
 .feature{padding:22px;text-align:center}
 .feature .icon{font-size:2rem;margin-bottom:10px}
 .feature h3{font-size:1.1rem;font-weight:normal;margin-bottom:6px}
 .feature p{font-size:.9rem;color:#60666a}
-
+/* ── Скачать (release) ── */
 .download-card{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:24px 28px;flex-wrap:wrap}
 .dl-version{font-size:1.35rem}
 .dl-meta{font-family:Arial,sans-serif;font-size:.82rem;color:var(--muted);margin-top:4px}
-
+/* ── Записи ── */
 .section-title{display:flex;justify-content:space-between;align-items:baseline;margin:38px 0 14px;border-bottom:2px solid var(--line);padding-bottom:8px}
 .section-title h2{font-size:1.65rem;font-weight:normal}
 .section-title a{font-family:Arial,sans-serif;font-size:.78rem;color:var(--rust);text-decoration:none}
@@ -91,10 +77,9 @@ a{color:inherit}
 .tags{font-family:Arial,sans-serif;font-size:.74rem;color:#777}
 .tags span{display:inline-block;border:1px solid #d7d1c5;padding:3px 8px;margin-right:5px}
 .read{font-family:Arial,sans-serif;font-size:.78rem;color:var(--rust);text-decoration:none;white-space:nowrap}
-
 .footer{margin-top:55px;background:var(--sea);color:#aeb9bb;padding:28px 24px;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
-
 @media(max-width:760px){
+  .brand{display:block}.brand p{margin-top:5px}
   .current{grid-template-columns:1fr}
   .hero h2{font-size:1.8rem}
   .nav-inner{gap:18px;overflow:auto}
@@ -105,9 +90,13 @@ a{color:inherit}
 <body>
 
 <header class="header">
-  <div class="header-banner">
-    <img src="https://i.ibb.co/cKrZZp1D/Untitled-1.jpg"
-         alt="Порт Корсаров на Android — дневник разработки">
+  <div class="header-inner">
+    <div class="brand">
+      <div>
+        <h1>Порт Корсаров на Android</h1>
+        <p id="brandTagline">Дневник разработки</p>
+      </div>
+    </div>
   </div>
   <nav class="nav">
     <div class="nav-inner" id="mainNav"><!-- JS --></div>
@@ -116,6 +105,7 @@ a{color:inherit}
 
 <main class="wrap">
 
+  <!-- ═══ Проект сейчас + текущая сборка ═══ -->
   <section class="current">
     <div class="panel hero">
       <div class="kicker" id="heroKicker">Проект сейчас</div>
@@ -130,11 +120,16 @@ a{color:inherit}
     <aside class="panel status" id="statusPanel"><!-- JS --></aside>
   </section>
 
+  <!-- ═══ Прогресс (dev/beta) ═══ -->
   <section class="panel progress-wrap" id="progressPanel"><!-- JS --></section>
 
+  <!-- ═══ Возможности (release) ═══ -->
   <div id="featuresSection"><!-- JS --></div>
+
+  <!-- ═══ Скачать (release) ═══ -->
   <div id="downloadsSection"><!-- JS --></div>
 
+  <!-- ═══ Записи ═══ -->
   <div class="section-title">
     <h2 id="feedTitle">Последние записи</h2>
     <a href="#">Все записи →</a>
@@ -150,10 +145,11 @@ a{color:inherit}
 
 <script>
 /* ════════════════════════════════════════════════════════════
-   КОНФИГ
+   КОНФИГ — меняется в одном месте
+   phase: 'dev' | 'beta' | 'release'
    ════════════════════════════════════════════════════════════ */
 const SITE = {
-  phase: 'dev',   // 'dev' | 'beta' | 'release'
+  phase: 'dev',   // ⬅⬅⬅ ГЛАВНЫЙ ПЕРЕКЛЮЧАТЕЛЬ
 
   author: 'Contrabandist',
 
@@ -264,9 +260,11 @@ const SITE = {
 (function () {
   const p = SITE.phase;
 
+  // Навигация
   document.getElementById('mainNav').innerHTML =
     SITE.nav[p].map(item => `<a href="#">${item}</a>`).join('');
 
+  // Hero
   const h = SITE.hero[p];
   document.getElementById('heroKicker').textContent = h.kicker;
   document.getElementById('heroTitle').textContent  = h.title;
@@ -277,6 +275,7 @@ const SITE = {
       `<a class="btn ${a.style}" href="${a.href}">${a.label}</a>`
     ).join('');
 
+  // Статус
   const statusTitle = p === 'release' ? 'Текущая версия' : 'Текущая сборка';
   document.getElementById('statusPanel').innerHTML = `
     <h3>${statusTitle}</h3>
@@ -285,6 +284,7 @@ const SITE = {
     ).join('')}
   `;
 
+  // Прогресс (dev/beta)
   const progressPanel = document.getElementById('progressPanel');
   if (p === 'release') {
     progressPanel.remove();
@@ -297,6 +297,7 @@ const SITE = {
     `;
   }
 
+  // Возможности (release)
   const featuresSection = document.getElementById('featuresSection');
   if (p === 'release') {
     featuresSection.innerHTML = `
@@ -315,6 +316,7 @@ const SITE = {
     featuresSection.remove();
   }
 
+  // Скачать (release)
   const downloadsSection = document.getElementById('downloadsSection');
   if (p === 'release') {
     downloadsSection.innerHTML = `
@@ -331,9 +333,11 @@ const SITE = {
     downloadsSection.remove();
   }
 
+  // Заголовок ленты
   document.getElementById('feedTitle').textContent =
     p === 'release' ? 'Архив дневника разработки' : 'Последние записи';
 
+  // Посты
   document.getElementById('postsFeed').innerHTML = SITE.posts.map(post => `
     <article class="panel post">
       <div class="meta">${post.date} · ${post.version}</div>
