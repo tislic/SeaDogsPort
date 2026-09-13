@@ -130,3 +130,26 @@ a{color:inherit}
   .section-title h2{font-size:1.35rem}
   .nav-inner{gap:18px;overflow:auto;padding:0 15px}
 }
+/* ═══ Превью-картинка в ленте ═══ */
+.post-cover {
+  display: block;
+  margin: -26px -28px 20px;      /* вылезает на всю ширину карточки */
+  overflow: hidden;
+  border-radius: 0;
+}
+.post-cover img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.post-cover:hover img {
+  transform: scale(1.04);
+}
+
+/* На мобильном — меньше высота */
+@media(max-width:760px){
+  .post-cover { margin: -22px -20px 18px; }
+  .post-cover img { height: 160px; }
+}
