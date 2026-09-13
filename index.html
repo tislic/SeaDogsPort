@@ -73,6 +73,11 @@ layout: default
 <section class="posts">
   {% for post in site.posts %}
     <article class="panel post">
+      {% if post.image %}
+        <a href="{{ post.url | relative_url }}" class="post-cover">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        </a>
+      {% endif %}
       <div class="meta">
         {{ post.date | date: "%d.%m.%Y" }}
         {% if post.version %} · {{ post.version }}{% endif %}
