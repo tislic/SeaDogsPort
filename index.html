@@ -112,28 +112,40 @@ a{color:inherit}
 
 .footer{margin-top:55px;background:var(--sea);color:#aeb9bb;padding:28px 24px;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
 
-/* ═══ МОБИЛЬНАЯ ВЕРСИЯ — компактная шапка ═══ */
+/* ═══ МОБИЛЬНАЯ ВЕРСИЯ ═══ */
 @media(max-width:760px){
   .header-inner{
-    padding:14px 15px;
-    gap:12px;
+    padding:12px 15px;
+    gap:10px;
   }
   .header-logo{
-    width:42px;
-    height:42px;
+    width:40px;
+    height:40px;
   }
   .header-text h1{
-    font-size:1.15rem;
-    line-height:1.1;
+    font-size:1rem;
+    line-height:1.15;
+    letter-spacing:0;
   }
   .header-text p{
-    font-size:.72rem;
+    font-size:.68rem;
     margin-top:1px;
   }
-  .current{grid-template-columns:1fr}
-  .hero h2{font-size:1.8rem}
-  .nav-inner{gap:18px;overflow:auto}
-  .wrap{padding:0 15px}
+  .wrap{
+    padding:0 15px;
+    margin:18px auto;
+  }
+  .current{grid-template-columns:1fr;gap:16px}
+  .hero{padding:22px 20px}
+  .hero h2{font-size:1.5rem;line-height:1.2}
+  .hero p{font-size:.95rem}
+  .status{padding:22px 20px}
+  .progress-wrap{padding:18px 20px;margin-bottom:22px}
+  .post{padding:22px 20px}
+  .post h3{font-size:1.25rem}
+  .section-title{margin:26px 0 12px}
+  .section-title h2{font-size:1.35rem}
+  .nav-inner{gap:18px;overflow:auto;padding:0 15px}
 }
 </style>
 </head>
@@ -141,9 +153,11 @@ a{color:inherit}
 
 <header class="header">
   <div class="header-inner">
+    <!-- Логотип лежит в папке design рядом с index.html -->
     <img class="header-logo"
          src="design/logo.png"
-         alt="Логотип Порт Корсаров">
+         alt="Логотип Порт Корсаров"
+         onerror="this.style.display='none'">
     <div class="header-text">
       <h1>Порт Корсаров на Android</h1>
       <p>Дневник разработки</p>
@@ -190,11 +204,10 @@ a{color:inherit}
 
 <script>
 /* ════════════════════════════════════════════════════════════
-   КОНФИГ — меняется в одном месте
-   phase: 'dev' | 'beta' | 'release'
+   КОНФИГ
    ════════════════════════════════════════════════════════════ */
 const SITE = {
-  phase: 'dev',   // ⬅⬅⬅ ГЛАВНЫЙ ПЕРЕКЛЮЧАТЕЛЬ
+  phase: 'dev',
 
   author: 'Contrabandist',
 
