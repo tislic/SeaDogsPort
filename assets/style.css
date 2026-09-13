@@ -139,8 +139,7 @@ a{color:inherit}
 }
 .post-cover img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 220px;
   object-fit: cover;
   display: block;
   transition: transform .4s ease;
