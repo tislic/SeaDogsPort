@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Порт Корсаров на Android — дневник проекта</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#20252a;
+  --muted:#70777d;
+  --paper:#f3f0e8;
+  --card:#fffdf8;
+  --line:#d8d2c5;
+  --sea:#263f49;
+  --gold:#b18a3b;
+  --rust:#8d4d3d;
+}
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--paper); color:var(--ink);
+  line-height:1.65; font-size:17px;
+}
+a{color:inherit}
+
+/* ═══ ШАПКА С КАРТИНКОЙ ═══ */
+.header{
+  background:#0a0a12;
+  border-bottom:5px solid var(--gold);
+}
+.header-banner{
+  width:100%;
+  overflow:hidden;
+  display:block;
+}
+.header-banner img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ═══ НАВИГАЦИЯ ═══ */
+.nav{background:#1e3239;border-top:1px solid rgba(255,255,255,.08);}
+.nav-inner{max-width:1080px;margin:auto;padding:0 24px;display:flex;gap:28px}
+.nav a{color:#dbe0df;text-decoration:none;padding:13px 0;font-family:Arial,sans-serif;font-size:.82rem;text-transform:uppercase;letter-spacing:.9px}
+.nav a:hover{color:#e0bb67}
+
+.wrap{max-width:1080px;margin:34px auto;padding:0 24px}
+.current{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;margin-bottom:34px}
+.panel{background:var(--card);border:1px solid var(--line);box-shadow:0 4px 16px rgba(35,35,25,.06)}
+.hero{padding:34px}
+.kicker{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1.2px;font-size:.75rem;color:var(--rust);margin-bottom:9px}
+.hero h2{font-size:2.25rem;font-weight:normal;line-height:1.15;margin-bottom:16px}
+.hero p{color:#4f565a;max-width:680px}
+.actions{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;padding:10px 17px;border:1px solid var(--sea);font-family:Arial,sans-serif;font-size:.84rem}
+.btn.primary{background:var(--sea);color:#fff}
+.btn.secondary{background:transparent;color:var(--sea)}
+.status{padding:28px}
+.status h3{font-weight:normal;font-size:1.35rem;margin-bottom:17px}
+.status-row{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:11px 0}
+.status-row span:first-child{color:var(--muted);font-family:Arial,sans-serif;font-size:.78rem;text-transform:uppercase}
+.status-row span:last-child{text-align:right}
+
+.progress-wrap{padding:22px 28px;margin-bottom:34px}
+.progress-wrap h3{font-weight:normal;font-size:1.1rem;margin-bottom:14px}
+.progress-track{background:#e6e1d5;height:10px;border-radius:5px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),#d4b266);border-radius:5px;transition:width .8s ease}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:16px}
+.feature{padding:22px;text-align:center}
+.feature .icon{font-size:2rem;margin-bottom:10px}
+.feature h3{font-size:1.1rem;font-weight:normal;margin-bottom:6px}
+.feature p{font-size:.9rem;color:#60666a}
+
+.download-card{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:24px 28px;flex-wrap:wrap}
+.dl-version{font-size:1.35rem}
+.dl-meta{font-family:Arial,sans-serif;font-size:.82rem;color:var(--muted);margin-top:4px}
+
+.section-title{display:flex;justify-content:space-between;align-items:baseline;margin:38px 0 14px;border-bottom:2px solid var(--line);padding-bottom:8px}
+.section-title h2{font-size:1.65rem;font-weight:normal}
+.section-title a{font-family:Arial,sans-serif;font-size:.78rem;color:var(--rust);text-decoration:none}
+.posts{display:grid;gap:18px}
+.post{padding:26px 28px}
+.meta{font-family:Arial,sans-serif;font-size:.74rem;text-transform:uppercase;letter-spacing:.6px;color:#858b8d;margin-bottom:9px}
+.post h3{font-size:1.45rem;font-weight:normal;margin-bottom:10px}
+.post h3 a{text-decoration:none}
+.post h3 a:hover{color:var(--rust)}
+.post p{color:#4d5357}
+.post-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}
+.tags{font-family:Arial,sans-serif;font-size:.74rem;color:#777}
+.tags span{display:inline-block;border:1px solid #d7d1c5;padding:3px 8px;margin-right:5px}
+.read{font-family:Arial,sans-serif;font-size:.78rem;color:var(--rust);text-decoration:none;white-space:nowrap}
+
+.footer{margin-top:55px;background:var(--sea);color:#aeb9bb;padding:28px 24px;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
+
+@media(max-width:760px){
+  .current{grid-template-columns:1fr}
+  .hero h2{font-size:1.8rem}
+  .nav-inner{gap:18px;overflow:auto}
+  .wrap{padding:0 15px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-banner">
+    <img src="https://i.ibb.co/cKrZZp1D/Untitled-1.jpg"
+         alt="Порт Корсаров на Android — дневник разработки">
+  </div>
+  <nav class="nav">
+    <div class="nav-inner" id="mainNav"><!-- JS --></div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="current">
+    <div class="panel hero">
+      <div class="kicker" id="heroKicker">Проект сейчас</div>
+      <h2 id="heroTitle">Портирование «Корсаров: Проклятье дальних морей» на Android</h2>
+      <p id="heroText">
+        Здесь собраны реальные сборки проекта, изменения в разработке,
+        технические решения и материалы, которые появляются по мере работы над портом.
+      </p>
+      <div class="actions" id="heroActions"><!-- JS --></div>
+    </div>
+
+    <aside class="panel status" id="statusPanel"><!-- JS --></aside>
+  </section>
+
+  <section class="panel progress-wrap" id="progressPanel"><!-- JS --></section>
+
+  <div id="featuresSection"><!-- JS --></div>
+  <div id="downloadsSection"><!-- JS --></div>
+
+  <div class="section-title">
+    <h2 id="feedTitle">Последние записи</h2>
+    <a href="#">Все записи →</a>
+  </div>
+
+  <section class="posts" id="postsFeed"><!-- JS --></section>
+
+</main>
+
+<footer class="footer">
+  Порт Корсаров на Android · Дневник разработки
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   КОНФИГ
+   ════════════════════════════════════════════════════════════ */
+const SITE = {
+  phase: 'dev',   // 'dev' | 'beta' | 'release'
+
+  author: 'Contrabandist',
+
+  hero: {
+    dev: {
+      kicker: 'Проект сейчас',
+      title: 'Портирование «Корсаров: Проклятье дальних морей» на Android',
+      text: 'Здесь собраны реальные сборки проекта, изменения в разработке, технические решения и материалы, которые появляются по мере работы над портом.'
+    },
+    beta: {
+      kicker: 'Открытая бета',
+      title: 'Бета-версия порта — можно пробовать',
+      text: 'Сборка стабильна на большинстве устройств. Ищем баги, собираем отзывы, готовим финальный релиз.'
+    },
+    release: {
+      kicker: 'Релиз',
+      title: 'Порт «Корсаров: Проклятье дальних морей» готов',
+      text: 'Полная версия игры для Android. Оригинальный геймплей, открытый мир, управление под тач.'
+    }
+  },
+
+  actions: {
+    dev: [
+      { label: 'Скачать текущую сборку', href: '#', style: 'primary' },
+      { label: 'Что изменилось',          href: '#', style: 'secondary' }
+    ],
+    beta: [
+      { label: 'Скачать бету v0.07',     href: '#', style: 'primary' },
+      { label: 'Сообщить о баге',         href: '#', style: 'secondary' }
+    ],
+    release: [
+      { label: 'Скачать игру v1.0',       href: '#', style: 'primary' },
+      { label: 'Скриншоты',               href: '#', style: 'secondary' }
+    ]
+  },
+
+  status: {
+    dev: [
+      ['Версия',    'v0.07'],
+      ['Стадия',    'Предальфа'],
+      ['Платформа', 'Android'],
+      ['Обновлено', '15 мая 2024']
+    ],
+    beta: [
+      ['Версия',    'v0.9 beta'],
+      ['Стадия',    'Бета-тест'],
+      ['Платформа', 'Android 8+'],
+      ['Обновлено', '1 сентября 2024']
+    ],
+    release: [
+      ['Версия',    'v1.0'],
+      ['Стадия',    'Релиз'],
+      ['Платформа', 'Android 8+'],
+      ['Обновлено', '20 декабря 2024']
+    ]
+  },
+
+  progress: 35,
+
+  features: [
+    { icon: '⚓', title: 'Оригинальный геймплей', text: 'Полный порт без упрощений' },
+    { icon: '🗺️', title: 'Открытый мир',         text: 'Все острова и квесты' },
+    { icon: '🎮', title: 'Управление под тач',   text: 'Как в AC IV: Black Flag' },
+    { icon: '🔊', title: 'Оригинальный звук',    text: 'Музыка и озвучка из игры' }
+  ],
+
+  release: {
+    version: 'v1.0',
+    size:    '420 Mb',
+    date:    '20.12.2024',
+    url:     '#'
+  },
+
+  nav: {
+    dev:     ['Главная', 'О проекте', 'Сборки', 'Материалы'],
+    beta:    ['Главная', 'Скачать', 'О проекте', 'Сборки', 'Материалы'],
+    release: ['Главная', 'Скачать', 'Возможности', 'О проекте']
+  },
+
+  posts: [
+    {
+      date: '15 мая 2024',
+      version: 'Предальфа v0.07',
+      title: 'Новое управление и оптимизация воды',
+      text: 'Отключены сенсорные стики для теста нового управления на ПК, убран курсор мыши для свободного движения камеры, оптимизированы текстуры воды.',
+      tags: ['Управление', 'Оптимизация']
+    },
+    {
+      date: '2 мая 2024',
+      version: 'Предальфа v0.06a',
+      title: 'Тест камеры и сенсорного управления',
+      text: 'Основное внимание уделено камере, сенсорному управлению и стабильности работы на устройствах с ограниченными ресурсами.',
+      tags: ['Камера', 'Тест']
+    },
+    {
+      date: '10 апреля 2024',
+      version: 'Начало проекта',
+      title: 'Начало портирования',
+      text: 'Первые шаги проекта и задача сохранить оригинальный геймплей при переносе игры на мобильную платформу.',
+      tags: ['История', 'Проект']
+    }
+  ]
+};
+
+/* ════════════════════════════════════════════════════════════
+   ЛОГИКА
+   ════════════════════════════════════════════════════════════ */
+(function () {
+  const p = SITE.phase;
+
+  document.getElementById('mainNav').innerHTML =
+    SITE.nav[p].map(item => `<a href="#">${item}</a>`).join('');
+
+  const h = SITE.hero[p];
+  document.getElementById('heroKicker').textContent = h.kicker;
+  document.getElementById('heroTitle').textContent  = h.title;
+  document.getElementById('heroText').textContent   = h.text;
+
+  document.getElementById('heroActions').innerHTML =
+    SITE.actions[p].map(a =>
+      `<a class="btn ${a.style}" href="${a.href}">${a.label}</a>`
+    ).join('');
+
+  const statusTitle = p === 'release' ? 'Текущая версия' : 'Текущая сборка';
+  document.getElementById('statusPanel').innerHTML = `
+    <h3>${statusTitle}</h3>
+    ${SITE.status[p].map(([k, v]) =>
+      `<div class="status-row"><span>${k}</span><span>${v}</span></div>`
+    ).join('')}
+  `;
+
+  const progressPanel = document.getElementById('progressPanel');
+  if (p === 'release') {
+    progressPanel.remove();
+  } else {
+    progressPanel.innerHTML = `
+      <h3>Готовность проекта — ${SITE.progress}%</h3>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:${SITE.progress}%"></div>
+      </div>
+    `;
+  }
+
+  const featuresSection = document.getElementById('featuresSection');
+  if (p === 'release') {
+    featuresSection.innerHTML = `
+      <div class="section-title"><h2>Возможности</h2></div>
+      <div class="features-grid">
+        ${SITE.features.map(f => `
+          <article class="panel feature">
+            <div class="icon">${f.icon}</div>
+            <h3>${f.title}</h3>
+            <p>${f.text}</p>
+          </article>
+        `).join('')}
+      </div>
+    `;
+  } else {
+    featuresSection.remove();
+  }
+
+  const downloadsSection = document.getElementById('downloadsSection');
+  if (p === 'release') {
+    downloadsSection.innerHTML = `
+      <div class="section-title"><h2>Скачать</h2></div>
+      <div class="panel download-card">
+        <div>
+          <div class="dl-version">${SITE.release.version}</div>
+          <div class="dl-meta">${SITE.release.size} · ${SITE.release.date}</div>
+        </div>
+        <a class="btn primary" href="${SITE.release.url}">Скачать APK</a>
+      </div>
+    `;
+  } else {
+    downloadsSection.remove();
+  }
+
+  document.getElementById('feedTitle').textContent =
+    p === 'release' ? 'Архив дневника разработки' : 'Последние записи';
+
+  document.getElementById('postsFeed').innerHTML = SITE.posts.map(post => `
+    <article class="panel post">
+      <div class="meta">${post.date} · ${post.version}</div>
+      <h3><a href="#">${post.title}</a></h3>
+      <p>${post.text}</p>
+      <div class="post-footer">
+        <div class="tags">${post.tags.map(t => `<span>${t}</span>`).join('')}</div>
+        <a class="read" href="#">Читать запись →</a>
+      </div>
+    </article>
+  `).join('');
+})();
+</script>
+
+</body>
+</html>
