@@ -32,10 +32,10 @@ a{color:inherit}
 .header-inner{
   max-width:1080px;
   margin:auto;
-  padding:22px 24px;
+  padding:26px 24px;
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:20px;
 }
 .header-logo{
   width:80px;
@@ -112,11 +112,24 @@ a{color:inherit}
 
 .footer{margin-top:55px;background:var(--sea);color:#aeb9bb;padding:28px 24px;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
 
+/* ═══ МОБИЛЬНАЯ ВЕРСИЯ — компактная шапка ═══ */
 @media(max-width:760px){
-  .header-inner{flex-direction:row;padding:16px 15px;gap:12px}
-  .header-logo{width:56px;height:56px}
-  .header-text h1{font-size:1.5rem}
-  .header-text p{font-size:.85rem}
+  .header-inner{
+    padding:14px 15px;
+    gap:12px;
+  }
+  .header-logo{
+    width:42px;
+    height:42px;
+  }
+  .header-text h1{
+    font-size:1.15rem;
+    line-height:1.1;
+  }
+  .header-text p{
+    font-size:.72rem;
+    margin-top:1px;
+  }
   .current{grid-template-columns:1fr}
   .hero h2{font-size:1.8rem}
   .nav-inner{gap:18px;overflow:auto}
@@ -128,9 +141,8 @@ a{color:inherit}
 
 <header class="header">
   <div class="header-inner">
-    <!-- ⬇⬇⬇ ЗАМЕНИТЕ ССЫЛКУ НА СВОЙ ЛОГОТИП ⬇⬇⬇ -->
     <img class="header-logo"
-         src="https://i65.servimg.com/u/f65/14/75/20/72/pngtre10.png"
+         src="design/logo.png"
          alt="Логотип Порт Корсаров">
     <div class="header-text">
       <h1>Порт Корсаров на Android</h1>
@@ -178,10 +190,11 @@ a{color:inherit}
 
 <script>
 /* ════════════════════════════════════════════════════════════
-   КОНФИГ
+   КОНФИГ — меняется в одном месте
+   phase: 'dev' | 'beta' | 'release'
    ════════════════════════════════════════════════════════════ */
 const SITE = {
-  phase: 'dev',
+  phase: 'dev',   // ⬅⬅⬅ ГЛАВНЫЙ ПЕРЕКЛЮЧАТЕЛЬ
 
   author: 'Contrabandist',
 
