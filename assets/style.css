@@ -62,7 +62,7 @@ a{color:inherit}
   border:1px solid var(--line);
   box-shadow:0 4px 16px rgba(35,35,25,.06);
   border-radius:8px;
-  overflow:hidden;   /* ← чтобы картинки не вылезали за скруглённые углы */
+  overflow:hidden;
 }
 .hero{padding:34px}
 .kicker{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1.2px;font-size:.75rem;color:var(--rust);margin-bottom:9px}
@@ -116,6 +116,54 @@ a{color:inherit}
 
 .footer{margin-top:55px;background:var(--sea);color:#aeb9bb;padding:28px 24px;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
 
+/* ═══ ПРЕВЬЮ-КАРТИНКА В ЛЕНТЕ ═══ */
+.post-cover {
+  display: block;
+  margin: -26px -28px 20px;
+  overflow: hidden;
+  border-radius: 0;
+}
+.post-cover img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.post-cover:hover img {
+  transform: scale(1.04);
+}
+
+/* ═══ КАРТИНКА В НАЧАЛЕ СТАТЬИ (post-hero) ═══ */
+.post-hero {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.post-hero img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  border-radius: 6px;
+}
+
+/* ═══ КАРТИНКИ ВНУТРИ ТЕКСТА СТАТЬИ ═══ */
+.post-content img {
+  display: block;
+  margin: 1.5em auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* ═══ ТЕКСТ В СТАТЬЯХ — ПО ШИРИНЕ (десктоп) ═══ */
+.post-content p,
+.post-content li,
+.post-content blockquote {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
 /* ═══ МОБИЛЬНАЯ ═══ */
 @media(max-width:760px){
   .header-inner{padding:14px 15px;gap:12px}
@@ -134,71 +182,18 @@ a{color:inherit}
   .section-title{margin:26px 0 12px}
   .section-title h2{font-size:1.35rem}
   .nav-inner{gap:18px;overflow:auto;padding:0 15px}
-}
-/* ═══ Превью-картинка в ленте ═══ */
-.post-cover {
-  display: block;
-  margin: -26px -28px 20px;      /* вылезает на всю ширину карточки */
-  overflow: hidden;
-  border-radius: 0;
-}
-.post-cover img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  transition: transform .4s ease;
-}
-.post-cover:hover img {
-  transform: scale(1.04);
-}
-
-/* На мобильном — меньше высота */
-@media(max-width:760px){
   .post-cover { margin: -22px -20px 18px; }
   .post-cover img { height: 160px; }
-}
 
-/* ═══ ВЫРАВНИВАНИЕ ТЕКСТА В СТАТЬЯХ ═══ */
-.post-content p,
-.post-content li,
-.post-content blockquote {
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-}
-
-/* ═══ КАРТИНКИ В СТАТЬЯХ — ПО ЦЕНТРУ ═══ */
-.post-content img {
-  display: block;
-  margin: 1.5em auto;
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-}
-
-/* ═══ МОБИЛЬНАЯ АДАПТАЦИЯ ═══ */
-@media(max-width:760px){
+  /* На мобильном — текст по левому краю, без justify */
   .post-content p,
   .post-content li,
   .post-content blockquote {
-    text-align: left;
+    text-align: left !important;
     hyphens: none;
+    -webkit-hyphens: none;
   }
   .post-content img {
     margin: 1em auto;
   }
-}
-
-/* ═══ КАРТИНКА В НАЧАЛЕ СТАТЬИ — ПО ЦЕНТРУ ═══ */
-.post-hero {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.post-hero img {
-  max-width: 100%;
-  height: auto;
-  display: inline-block;   /* чтобы text-align: center сработал */
-  border-radius: 6px;
 }
