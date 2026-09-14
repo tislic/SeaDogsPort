@@ -190,24 +190,15 @@ a{color:inherit}
   }
 }
 
-/* ═══ ОБЛОЖКА СТАТЬИ (картинка в начале поста) ═══ */
+/* ═══ КАРТИНКА В НАЧАЛЕ СТАТЬИ — ПО ЦЕНТРУ ═══ */
 .post-hero {
-  display: block;
-  margin: -40px -40px 20px;   /* вылезает на всю ширину карточки (padding у .post = 40px) */
-  overflow: hidden;
-  border-radius: 8px 8px 0 0;  /* скругление сверху, как у .panel */
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .post-hero img {
-  width: 100%;
-  height: auto;              /* или фиксированная высота, если хочешь */
-  display: block;
-  object-fit: cover;
-}
-
-/* На мобильном — меньше отступы */
-@media(max-width:760px){
-  .post-hero {
-    margin: -22px -20px 18px;  /* на мобильном padding у .post = 22px 20px */
-  }
+  max-width: 100%;
+  height: auto;
+  display: inline-block;   /* чтобы text-align: center сработал */
+  border-radius: 6px;
 }
