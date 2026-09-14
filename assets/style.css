@@ -197,3 +197,13 @@ a{color:inherit}
     margin: 1em auto;
   }
 }
+
+@media screen and (max-width: 760px) {
+  .post-content p,
+  .post-content li,
+  .post-content blockquote {
+    text-align: justify !important;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
