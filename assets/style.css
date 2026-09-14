@@ -202,7 +202,7 @@ body {
     background: red !important;
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
     body {
         background: lime !important;
     }
