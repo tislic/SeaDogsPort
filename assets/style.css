@@ -155,7 +155,7 @@ a{color:inherit}
   border-radius: 6px;
 }
 
-/* ═══ ТЕКСТ В СТАТЬЯХ — ПО ШИРИНЕ (десктоп) ═══ */
+/* ═══ ТЕКСТ В СТАТЬЯХ — ПО ШИРИНЕ ═══ */
 .post-content p,
 .post-content li,
 .post-content blockquote {
@@ -165,7 +165,7 @@ a{color:inherit}
 }
 
 /* ═══ МОБИЛЬНАЯ ═══ */
-@media(max-width:760px){
+@media screen and (max-width:760px){
   .header-inner{padding:14px 15px;gap:12px}
   .header-logo{width:64px;height:64px}
   .header-text h1{font-size:1.8rem;line-height:1.15;letter-spacing:0}
@@ -184,26 +184,7 @@ a{color:inherit}
   .nav-inner{gap:18px;overflow:auto;padding:0 15px}
   .post-cover { margin: -22px -20px 18px; }
   .post-cover img { height: 160px; }
-
-  /* На мобильном — текст по левому краю, без justify */
-  .post-content p,
-  .post-content li,
-  .post-content blockquote {
-    text-align: left !important;
-    hyphens: none;
-    -webkit-hyphens: none;
-  }
   .post-content img {
     margin: 1em auto;
-  }
-}
-
-@media screen and (max-width: 760px) {
-  .post-content p,
-  .post-content li,
-  .post-content blockquote {
-    text-align: justify !important;
-    hyphens: auto;
-    -webkit-hyphens: auto;
   }
 }
