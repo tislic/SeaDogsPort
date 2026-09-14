@@ -189,3 +189,25 @@ a{color:inherit}
     margin: 1em auto;
   }
 }
+
+/* ═══ ОБЛОЖКА СТАТЬИ (картинка в начале поста) ═══ */
+.post-hero {
+  display: block;
+  margin: -40px -40px 20px;   /* вылезает на всю ширину карточки (padding у .post = 40px) */
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;  /* скругление сверху, как у .panel */
+}
+
+.post-hero img {
+  width: 100%;
+  height: auto;              /* или фиксированная высота, если хочешь */
+  display: block;
+  object-fit: cover;
+}
+
+/* На мобильном — меньше отступы */
+@media(max-width:760px){
+  .post-hero {
+    margin: -22px -20px 18px;  /* на мобильном padding у .post = 22px 20px */
+  }
+}
