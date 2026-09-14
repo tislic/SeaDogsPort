@@ -197,3 +197,7 @@ a{color:inherit}
     margin: 1em auto;
   }
 }
+
+@media(max-width:760px){
+  body { background: red !important; }
+}
