@@ -158,3 +158,34 @@ a{color:inherit}
   .post-cover { margin: -22px -20px 18px; }
   .post-cover img { height: 160px; }
 }
+
+/* ═══ ВЫРАВНИВАНИЕ ТЕКСТА В СТАТЬЯХ ═══ */
+.post-content p,
+.post-content li,
+.post-content blockquote {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ═══ КАРТИНКИ В СТАТЬЯХ — ПО ЦЕНТРУ ═══ */
+.post-content img {
+  display: block;
+  margin: 1.5em auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* ═══ МОБИЛЬНАЯ АДАПТАЦИЯ ═══ */
+@media(max-width:760px){
+  .post-content p,
+  .post-content li,
+  .post-content blockquote {
+    text-align: left;
+    hyphens: none;
+  }
+  .post-content img {
+    margin: 1em auto;
+  }
+}
