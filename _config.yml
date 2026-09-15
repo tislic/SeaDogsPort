@@ -2,6 +2,12 @@ title: "Порт Корсаров на Android"
 description: "Дневник разработки"
 author: Contrabandist
 
+# Пагинация записей
+paginate: 5
+paginate_path: "/page/:num/"
+plugins:
+  - jekyll-paginate
+
 # ⬇⬇⬇ ГЛАВНЫЙ ПЕРЕКЛЮЧАТЕЛЬ ФАЗЫ ⬇⬇⬇
 phase: dev          # dev | beta | release
 progress: 35        # 0-100
