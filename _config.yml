@@ -2,8 +2,8 @@ title: "Порт Корсаров на Android"
 description: "Дневник разработки"
 author: Contrabandist
 
-url: "https://tislic.github.io"
-baseurl: "/SeaDogsPort"
+url: "https://contrabandist.ru"
+baseurl: ""
 
 # Пагинация записей
 paginate: 5
