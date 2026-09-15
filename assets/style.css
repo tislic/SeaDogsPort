@@ -114,12 +114,13 @@ a{color:inherit}
 .tags span{display:inline-block;border:1px solid #d7d1c5;padding:3px 8px;margin-right:5px}
 .read{font-family:Arial,sans-serif;font-size:.78rem;color:var(--rust);text-decoration:none;white-space:nowrap}
 
-/* ═══ ФУТЕР: ПЕЙЗАЖ НАД ТЁМНОЙ ПОЛОСОЙ ═══ */
+/* ═══ ФУТЕР: ПОСЛЕДНЯЯ СТАТЬЯ ЗАХОДИТ НА ПЕЙЗАЖ ═══ */
 .footer{
   --footer-art-height:clamp(160px,25.735vw,490px);
   --footer-gap:28px;
   position:relative;
-  margin-top:calc(var(--footer-art-height) + var(--footer-gap));
+  z-index:1;
+  margin-top:calc(var(--footer-art-height) * .6 + var(--footer-gap));
   padding:28px 24px 24px;
   background:var(--sea);
   color:#aeb9bb;
@@ -128,7 +129,7 @@ a{color:inherit}
   font-size:.78rem;
 }
 
-/* Пейзаж занимает место над футером, но не создаёт пустого отступа */
+/* Пейзаж уходит вверх под последнюю статью примерно на 40% своей высоты */
 .footer::before{
   content:"";
   position:absolute;
@@ -145,8 +146,13 @@ a{color:inherit}
   background-size:100% auto,100% auto;
   pointer-events:none;
 }
-.footer{isolation:isolate}
 .footer > *{position:relative;z-index:1}
+
+/* Последняя статья лежит поверх пейзажа */
+.posts .post:last-child{
+  position:relative;
+  z-index:2;
+}
 
 /* ═══ ПРЕВЬЮ-КАРТИНКА В ЛЕНТЕ ═══ */
 .post-cover {
@@ -223,7 +229,7 @@ a{color:inherit}
   .footer{
     --footer-art-height:160px;
     --footer-gap:22px;
-    margin-top:calc(var(--footer-art-height) + var(--footer-gap));
+    margin-top:calc(var(--footer-art-height) * .6 + var(--footer-gap));
     padding:22px 15px 20px;
   }
   .footer::before{
