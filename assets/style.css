@@ -36,7 +36,7 @@ a{color:inherit}
 .post-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}.tags{font-family:Arial,sans-serif;font-size:.74rem;color:#777}.tags span{display:inline-block;border:1px solid #d7d1c5;padding:3px 8px;margin-right:5px}.read{font-family:Arial,sans-serif;font-size:.78rem;color:var(--rust);text-decoration:none;white-space:nowrap}
 
 /* ═══ ПЕЙЗАЖ: ОТДЕЛЬНЫЙ СЛОЙ ПОД НИЖНЕЙ ЧАСТЬЮ КОНТЕНТА ═══ */
-.footer-scenery{--footer-art-height:clamp(160px,25.735vw,490px);position:relative;z-index:1;height:var(--footer-art-height);margin-top:calc(var(--footer-art-height) * -.85);background-image:url("design/background-source.png");background-repeat:no-repeat;background-position:center;background-size:cover;pointer-events:none}
+.footer-scenery{--footer-art-height:clamp(160px,25.735vw,490px);position:relative;z-index:1;height:var(--footer-art-height);margin-top:calc(var(--footer-art-height) * -.77);background-image:url("design/background-source.png");background-repeat:no-repeat;background-position:center;background-size:cover;pointer-events:none}
 .footer-scenery::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--paper) 0%,rgba(243,240,232,.88) 10%,rgba(243,240,232,.38) 28%,rgba(243,240,232,0) 48%,rgba(243,240,232,0) 62%,rgba(243,240,232,.18) 76%,rgba(243,240,232,.58) 90%,var(--paper) 100%)}
 
 .footer{position:relative;z-index:3;margin-top:0;padding:28px 24px 24px;background:var(--sea);color:#aeb9bb;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
