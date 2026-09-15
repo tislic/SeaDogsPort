@@ -20,7 +20,7 @@ a{color:inherit}
 .nav-inner{max-width:1080px;margin:auto;padding:0 24px;display:flex;gap:28px}
 .nav a{color:#dbe0df;text-decoration:none;padding:13px 0;font-family:Arial,sans-serif;font-size:.82rem;text-transform:uppercase;letter-spacing:.9px}
 .nav a:hover{color:#e0bb67}
-.wrap{max-width:1080px;margin:34px auto;padding:0 24px}
+.wrap{max-width:1080px;margin:34px auto;padding:0 24px;position:relative;z-index:2}
 .current{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;margin-bottom:34px}
 .panel{background:var(--card);border:1px solid var(--line);box-shadow:0 4px 16px rgba(35,35,25,.06);border-radius:8px;overflow:hidden}
 .hero{padding:34px}.kicker{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1.2px;font-size:.75rem;color:var(--rust);margin-bottom:9px}
@@ -35,14 +35,14 @@ a{color:inherit}
 .post-content h1,.post-content h2,.post-content h3{font-weight:normal;margin:24px 0 12px}.post-content p{margin-bottom:14px}.post-content ul{margin:14px 0 14px 24px}.post-content li{margin-bottom:6px}.post-content code{background:#f0ede4;padding:2px 7px;border-radius:3px;font-family:'Courier New',monospace;font-size:.9em;color:var(--rust)}.post-content a{color:var(--rust)}
 .post-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}.tags{font-family:Arial,sans-serif;font-size:.74rem;color:#777}.tags span{display:inline-block;border:1px solid #d7d1c5;padding:3px 8px;margin-right:5px}.read{font-family:Arial,sans-serif;font-size:.78rem;color:var(--rust);text-decoration:none;white-space:nowrap}
 
-/* ═══ ФУТЕР: ПЕЙЗАЖ ЗАХОДИТ ПОД СТАТЬИ ═══ */
-.footer{--footer-art-height:clamp(160px,25.735vw,490px);--footer-gap:28px;position:relative;z-index:1;margin-top:calc(var(--footer-art-height) * .3 + var(--footer-gap));padding:28px 24px 24px;background:var(--sea);color:#aeb9bb;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
-.footer::before{content:"";position:absolute;z-index:0;left:0;right:0;bottom:100%;height:var(--footer-art-height);background-image:url("design/background-source.png");background-repeat:no-repeat;background-position:center;background-size:cover;pointer-events:none}
-.footer::after{content:"";position:absolute;z-index:1;left:0;right:0;bottom:100%;height:var(--footer-art-height);background:linear-gradient(to bottom,var(--paper) 0%,rgba(243,240,232,.88) 10%,rgba(243,240,232,.38) 28%,rgba(243,240,232,0) 48%,rgba(243,240,232,0) 62%,rgba(243,240,232,.18) 76%,rgba(243,240,232,.58) 90%,var(--paper) 100%);pointer-events:none}
-.footer > *{position:relative;z-index:2}
+/* ═══ ПЕЙЗАЖ: ОТДЕЛЬНЫЙ СЛОЙ ПОД НИЖНЕЙ ЧАСТЬЮ КОНТЕНТА ═══ */
+.footer-scenery{--footer-art-height:clamp(160px,25.735vw,490px);position:relative;z-index:1;height:var(--footer-art-height);margin-top:calc(var(--footer-art-height) * -.70);background-image:url("design/background-source.png");background-repeat:no-repeat;background-position:center;background-size:cover;pointer-events:none}
+.footer-scenery::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--paper) 0%,rgba(243,240,232,.88) 10%,rgba(243,240,232,.38) 28%,rgba(243,240,232,0) 48%,rgba(243,240,232,0) 62%,rgba(243,240,232,.18) 76%,rgba(243,240,232,.58) 90%,var(--paper) 100%)}
 
-/* Последняя статья полупрозрачная и находится поверх пейзажа */
-.posts .post:last-child{position:relative;z-index:2;background:rgba(255,253,248,.72)}
+.footer{position:relative;z-index:3;margin-top:0;padding:28px 24px 24px;background:var(--sea);color:#aeb9bb;text-align:center;font-family:Arial,sans-serif;font-size:.78rem}
+
+/* Нижняя статья остаётся читаемой, но пейзаж визуально проходит под ней */
+.posts .post:last-child{position:relative;z-index:3;background:rgba(255,253,248,.72)}
 
 .post-cover{display:block;margin:-26px -28px 20px;overflow:hidden;border-radius:0}.post-cover img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .4s ease}.post-cover:hover img{transform:scale(1.04)}
 .post-hero{text-align:center;margin-bottom:20px}.post-hero img{max-width:100%;height:auto;display:inline-block;border-radius:6px}
@@ -52,7 +52,6 @@ a{color:inherit}
 @media screen and (max-width:760px){
   .header-inner{padding:14px 15px;gap:12px}.header-logo{width:64px;height:64px}.header-text h1{font-size:1.8rem;line-height:1.15;letter-spacing:0}.header-text p{font-size:.95rem;margin-top:2px}
   .wrap{padding:0 15px;margin:18px auto}.current{grid-template-columns:1fr;gap:16px}.hero{padding:22px 20px}.hero h2{font-size:1.5rem;line-height:1.2}.hero p{font-size:.95rem}.status{padding:22px 20px}.progress-wrap{padding:18px 20px;margin-bottom:22px}.post{padding:22px 20px}.post h3{font-size:1.25rem}.section-title{margin:26px 0 12px}.section-title h2{font-size:1.35rem}.nav-inner{gap:18px;overflow:auto;padding:0 15px}.post-cover{margin:-22px -20px 18px}.post-cover img{height:160px}.post-content img{margin:1em auto}
-  .footer{--footer-art-height:160px;--footer-gap:22px;margin-top:calc(var(--footer-art-height) * .3 + var(--footer-gap));padding:22px 15px 20px}
-  .footer::before{background-size:cover;background-position:center}
-  .footer::after{background:linear-gradient(to bottom,var(--paper) 0%,rgba(243,240,232,.84) 12%,rgba(243,240,232,.34) 34%,rgba(243,240,232,0) 55%,rgba(243,240,232,.2) 78%,rgba(243,240,232,.62) 91%,var(--paper) 100%)}
+  .footer-scenery{--footer-art-height:160px;margin-top:calc(var(--footer-art-height) * -.70);background-size:cover;background-position:center}
+  .footer{padding:22px 15px 20px}
 }
