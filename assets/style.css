@@ -48,9 +48,9 @@ a{color:inherit}
 
 /* ═══ СТРАНИЦА СБОРОК ═══ */
 .build-page{padding:34px 38px 38px}
-.build-page h1{font-size:2.25rem;font-weight:normal;line-height:1.15;margin:0 0 10px;padding-bottom:16px;border-bottom:2px solid var(--line)}
+.build-page h1{font-size:2.25rem;font-weight:normal;line-height:1.15;margin:0 0 10px;padding-bottom:16px}
 .build-page>p:first-of-type{color:#4f565a;margin-bottom:30px}
-.build-page h3{font-size:1.4rem;font-weight:normal;line-height:1.3;margin:28px 0 0;padding:18px 0 9px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink)}
+.build-page h3{font-size:1.4rem;font-weight:normal;line-height:1.3;margin:28px 0 0;padding:18px 0 9px;border-top:1px solid var(--line);color:var(--ink)}
 .build-page h3:first-of-type{margin-top:0}
 .build-page h3+ p{margin:0;padding:16px 0 22px;color:#4f565a}
 .build-page h3+ p strong{font-weight:normal;color:var(--muted);font-family:Arial,sans-serif;font-size:.88rem}
