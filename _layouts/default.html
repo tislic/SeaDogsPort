@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
-<body class="phase-{{ site.phase }}">
+<body class="phase-{{ site.phase }}{% if page.body_class %} {{ page.body_class }}{% endif %}">
 
 <header class="header">
   <div class="header-inner">
