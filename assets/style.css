@@ -71,6 +71,8 @@ body.builds-page .wrap>h3:nth-last-of-type(1)+ p+ ul+ p{background:#f0ede4;borde
 .build-page h3 a{color:var(--rust);text-decoration:none}
 .build-page h3+ p{margin:0 -38px;padding:0 38px 22px;background:#e9e4d8;color:#4f565a}
 .build-page h3+ p strong{font-weight:normal;color:var(--muted);font-family:Arial,sans-serif;font-size:.88rem}
+.build-page h3+ p a{display:inline-block;margin-top:8px;padding:10px 18px;background:var(--sea);color:#fff;text-decoration:none;border:1px solid var(--sea);border-radius:6px;font-family:Arial,sans-serif;font-size:.82rem;letter-spacing:.3px}
+.build-page h3+ p a:hover{background:#1e3239;color:#fff}
 .build-page h3+ p+ h3{border-top:1px solid var(--line)}
 .build-page h3:last-of-type{margin-top:10px;padding-top:26px;background:#f0ede4}
 .build-page h3:last-of-type+ p{background:#f0ede4;padding-bottom:10px}
@@ -97,6 +99,7 @@ body.builds-page .wrap>h3:nth-last-of-type(1)+ p+ ul+ p{background:#f0ede4;borde
   .build-page h3{font-size:1.2rem;margin-left:-20px;margin-right:-20px;padding:16px 20px 8px}
   .build-page h3+ p{margin-left:-20px;margin-right:-20px;padding:0 20px 18px;font-size:.9rem}
   .build-page h3+ p strong{font-size:.78rem}
+  .build-page h3+ p a{padding:9px 14px;font-size:.78rem}
   .build-page h3:last-of-type{padding-top:22px}
   .build-page h3:last-of-type+ p{padding-bottom:10px}
   .build-page h3:last-of-type+ p+ ul{margin-left:-20px;margin-right:-20px;padding:0 20px 18px 40px;font-size:.9rem}
