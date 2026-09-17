@@ -30,7 +30,7 @@ hero:
     text: "Полная версия игры для Android. Оригинальный геймплей, открытый мир, управление под тач."
 
 status:
-  version: v0.07
+  version: v0.03
   stage: Предальфа
   platform: Android
   updated: 15 мая 2024
