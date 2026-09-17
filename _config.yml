@@ -13,7 +13,7 @@ plugins:
 
 # ⬇⬇⬇ ГЛАВНЫЙ ПЕРЕКЛЮЧАТЕЛЬ ФАЗЫ ⬇⬇⬇
 phase: dev          # dev | beta | release
-progress: 35        # 0-100
+progress: 11        # 0-100
 
 hero:
   dev:
