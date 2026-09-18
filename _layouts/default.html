@@ -55,5 +55,46 @@
   {{ site.title }} · {{ site.description }}
 </footer>
 
+<div class="image-lightbox" id="image-lightbox" aria-hidden="true">
+  <button class="image-lightbox-close" type="button" aria-label="Закрыть">×</button>
+  <img class="image-lightbox-image" id="image-lightbox-image" src="" alt="">
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImage = document.getElementById('image-lightbox-image');
+  const closeButton = lightbox.querySelector('.image-lightbox-close');
+
+  document.querySelectorAll('.post-content img, .build-page img').forEach(function (image) {
+    image.classList.add('lightbox-trigger');
+    image.addEventListener('click', function () {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt || '';
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    lightboxImage.src = '';
+  }
+
+  closeButton.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (event) {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+      closeLightbox();
+    }
+  });
+});
+</script>
+
 </body>
 </html>
