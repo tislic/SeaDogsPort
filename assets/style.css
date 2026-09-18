@@ -44,7 +44,7 @@ a{color:inherit}
 .pagination a,.pagination .current,.pagination .disabled{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:6px 10px;text-decoration:none;border:1px solid var(--line);border-radius:5px}
 .pagination a:hover{color:var(--rust);border-color:var(--rust)}.pagination .current{background:var(--sea);border-color:var(--sea);color:#fff}.pagination .disabled{color:#a4a6a6;background:#ece8df}.pagination-pages{display:flex;gap:6px;align-items:center}
 .post-cover{display:block;margin:-26px -28px 20px;overflow:hidden;border-radius:0}.post-cover img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .4s ease}.post-cover:hover img{transform:scale(1.04)}
-.post-hero{text-align:center;margin-bottom:20px}.post-hero img{max-width:100%;height:auto;display:inline-block;border-radius:6px}.post-content img{display:block;margin:1.5em auto;max-width:100%;height:auto;border-radius:6px}.post-content p,.post-content li,.post-content blockquote{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.post-hero{text-align:center;margin-bottom:20px}.post-hero img{max-width:100%;height:auto;display:inline-block;border-radius:6px}.post-content img{display:block;margin:1.5em auto;max-width:100%;height:auto;border-radius:6px}.post-content p,.post-content li,.post-content blockquote{text-align:justify;hyphens:auto;-webkit-hyphens:auto}.build-page img{display:block;margin:1.5em auto;max-width:100%;height:auto;border-radius:6px}
 
 /* ═══ СТРАНИЦА СБОРОК ═══ */
 .build-page{padding:34px 38px 38px}
