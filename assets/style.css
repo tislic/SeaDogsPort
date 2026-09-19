@@ -92,6 +92,3 @@ body.lightbox-open{overflow:hidden}
   .image-lightbox-image{max-width:calc(100vw - 30px);max-height:calc(100vh - 30px)}
 }
 
-/* ═══ КНОПКА ЮMONEY ═══ */
-.post-content a[href="https://yoomoney.ru/to/410011652541454"]{display:inline-block;margin-top:6px;padding:10px 17px;background:var(--sea);color:#fff;text-decoration:none;border:1px solid var(--sea);border-radius:6px;font-family:Arial,sans-serif;font-size:.84rem}
-.post-content a[href="https://yoomoney.ru/to/410011652541454"]:hover{background:#1e3239;color:#fff}
