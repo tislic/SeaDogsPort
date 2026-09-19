@@ -33,6 +33,7 @@ status:
   version: v0.03
   stage: Beta
   platform: Android
+  engine: Unity
   updated: 15 сентября 2026
 
 nav:
