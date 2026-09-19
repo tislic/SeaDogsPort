@@ -24,7 +24,7 @@ layout: default
   {% if page.tags %}
   <div class="tags" style="margin-top:30px; padding-top:20px; border-top:1px solid #d8d2c5;">
     {% for tag in page.tags %}
-      <a href="{{ '/tags/' | append: '#' | append: tag | slugify | relative_url }}">{{ tag }}</a>
+      <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
     {% endfor %}
   </div>
   {% endif %}
