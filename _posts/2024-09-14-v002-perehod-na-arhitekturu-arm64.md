@@ -2,6 +2,7 @@
 layout: post
 title: "Переход на архитектуру ARM64"
 version: "Бата v0.02"
+date: 2026-09-14 18:45:00 +0300
 tags: [Морская часть]
 excerpt: "Задался вопросом об архитектуре процессора с которым работаю."
 image: /assets/images/art-ARM64.png
