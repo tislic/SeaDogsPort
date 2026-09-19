@@ -91,3 +91,7 @@ body.lightbox-open{overflow:hidden}
   .image-lightbox{padding:15px}
   .image-lightbox-image{max-width:calc(100vw - 30px);max-height:calc(100vh - 30px)}
 }
+
+/* ═══ КНОПКА ЮMONEY ═══ */
+.post-content .donate-btn{margin-top:6px;color:#fff;text-decoration:none}
+.post-content .donate-btn:hover{color:#fff;background:#1e3239}
