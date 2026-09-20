@@ -76,7 +76,7 @@ layout: default
     <article class="panel post">
       {% if post.image %}
         <a href="{{ post.url | relative_url }}" class="post-cover">
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">
         </a>
       {% endif %}
       <div class="meta">
