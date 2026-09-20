@@ -34,6 +34,7 @@ status:
   stage: Beta
   platform: Android
   engine: Unity
+  size: 29 МБ
   updated: 15 сентября 2026
 
 nav:
