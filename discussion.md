@@ -15,18 +15,13 @@ permalink: /discussion/
 
 </div>
 
-<script src="https://giscus.app/client.js"
-        data-repo="tislic/SeaDogsPort"
-        data-repo-id="R_kgDOMFs12w"
-        data-category="General"
-        data-category-id="DIC_kwDOMFs1284DF06g"
-        data-mapping="url"
-        data-strict="0"
-        data-reactions-enabled="0"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="ru"
+<script src="https://beaudar.lipk.org/client.js"
+        repo="tislic/SeaDogsPort"
+        issue-term="pathname"
+        branch="main"
+        position="bottom"
+        order="desc"
+        theme="preferred-color-scheme"
         crossorigin="anonymous"
         async>
 </script>
