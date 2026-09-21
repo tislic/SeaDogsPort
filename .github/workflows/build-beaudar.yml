@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - ".github/workflows/build-beaudar.yml"
-      - "beaudar-build.trigger"
   workflow_dispatch:
 
 permissions:
