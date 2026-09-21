@@ -17,21 +17,60 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "16"
-      - name: Prepare Beaudar
+      - name: Build Beaudar
         run: |
           rm -rf beaudar-build
           git clone --depth 1 https://github.com/beaudar/beaudar.git beaudar-build
           cd beaudar-build
           python3 - <<'PY'
             from pathlib import Path
-            R=[('\u53d1\u8868\u8bc4\u8bba\uff08Ctrl+Enter\uff09", '\u041e\u043f\u0443\u0431\u043b\u0438\u043a\u043e\u0432\u0430\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439 (Ctrl+Enter)'), ('\u65e0\u6cd5\u4ece GitHub \u83b7\u53d6\u6570\u636e', '\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0434\u0430\u043d\u043d\u044b\u0435 GitHub'), ('\u652f\u6301 Markdown \u683c\u5f0f', '\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u0442\u0441\u044f Markdown'), ('\u521b\u5efa\u8bc4\u8bba issue \u65f6\u51fa\u9519', '\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0438 Issue \u0434\u043b\u044f \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0435\u0432'), ('\u641c\u7d22 Issues \u5931\u8d25\u3002', '\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0432\u044b\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u0438\u0441\u043a Issues.'), ('\u6d4f\u89c8\u6216\u63d0\u4ea4 Issue\u3002', '\u043f\u0440\u043d\u0441\u003c\u043c\u0442\u0440\u0435\u0442\u044c \u0438\u043b\u0438 \u0441\u043e\u0437\u0434\u0430\u0442\u044c Issue.'), ('Token \u8bf7\u6c42\u5931\u8d25', '\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0442\u043e\u043a\u0435\u043d\u0430'), ('\u6ca1\u6709\u53ef\u9884\u89c8\u7684\u5185\u5bb9', '\u041f\u0440\u0435\u0434\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043f\u043e\u043a\u0430 \u043f\u0443\u0441\u0442'), ('\u9009\u62e9\u4f60\u7684\u8868\u60c5\u7b26\u53f7", '\u0412\u044b\u0431\u0435\u0440\u0438 \u0440\u0435\u0430\u043a\u0446\u0438\u044e'), ('\u83b7\u53d6\u8bc4\u8bba\u6570\u636e\u5931\u8d25', '\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439'), ('\u63d0\u53d6\u8bc4\u8bba\u65f6\u51fa\u9519\u3002', '\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0438 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0435\u0432.'), ('\u53d1\u5e03\u8bc4\u8bba\u65f6\u51fa\u9519', '\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u043f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u0438 \u043a\u043e\u043c\u043c\u0035\u043d\u0442\u0430\u0440\u0438\u044f"), ('\u8bc4\u8bba\u53d1\u5e03\u88ab\u7981\u6b62', '\u041f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u044f \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0435\u0432 \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d\u0430'), ('\u5199\u4e0b\u60a8\u7684\u8bc4\u8bba', '\u041d\u0430\u043f\u0438\u0448\u0438\u0442\u0435 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439"], ["\u52a0\u8f7d\u9884\u89c8\u4e2d\u2026", "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u043f\u0440\u0435\u0434\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430\u2026"], ["\u6761\u8bc4\u8bba\u88ab\u6536\u8d77", "\u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0435\u0432 \u0441\u043a\u0440\u044b\u0442\u043e"], ["\u767b\u5f55\u540e\u8bc4\u8bba", "\u0412\u043e\u0439\u0434\u0438\u0442\u0435, \u0447\u0442\u043e\u0431\u044b \u043e\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439"], ["\u8fd8\u6ca1\u6709\u8bc4\u8bba", "\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0435\u0432 \u043f\u043e\u043a\u0430 \u043d\u0435\u0442"], ["\u521d\u671f\u8d21\u732e\u8005", "\u041d\u043e\u0432\u044b\u0439 \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a"], ["\u53d1\u8868\u8bc4\u8bba", "\u041e\u043f\u0443\u0431\u043b\u0438\u043a\u043e\u0432\u0430\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439"], ["\u52a0\u8f7d\u66f4\u591a", "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0435\u0449\u0451"], ["\u52a0\u8f7d\u4e2d\u2026", "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430\u2026"], ["\u7cfb\u7edf\u6d88\u606f", "\u0421\u0438\u0441\u0442\u0435\u043c\u043d\u043e\u0435 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435"], ["\u4e2a\u5c0f\u65f6", "\u0447."], ["\u4e0d\u8d5e\u540c", "\u041d\u0435 \u043d\u0440\u0430\u0432\u0438\u0442\u0441\u044f"], ["\u5408\u4f5c\u8005", "\u0423\u0447\u0430\u0441\u0442\u043d\u0438\u043a"], ["\u8d21\u732e\u8005", "\u041d\u043e\u043d\u0442\u0440\u0438\u0431\u044c\u044e\u0442\u043e\u0440"], ["\u8bc4\u8bba", "\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439"], ["\u7f16\u8f91", "\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c"], ["\u9884\u89c8", "\u041f\u0440\u0435\u0434\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440"], ["\u5237\u65b0", "\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c"], ["\u767b\u5f55", "\u0412\u043e\u0439\u0442\u0438"], ["\u521a\u521a", "\u0442\u043e\u043b\u044c\u043a\u043e \u0447\u0442\u043e"], ["\u5206\u949f", "\u043c\u0438\u043d."], ["\u4e2a\u6708", "\u043c\u0435\u0441."], ["\u8d5e\u540c", "\u041d\u0440\u0430\u0432\u0438\u0442\u0441\u044f"], ["\u7b11\u8138", "\u0421\u043c\u0435\u0445"], ["\u5e86\u795d", "\u0423\u0440\u0430"], ["\u56f0\u60d1", "\u0421\u043e\u043c\u043d\u0435\u043d\u0438\u0435"], ["\u559c\u6b22", "\u041b\u044e\u0431\u043e\u0432\u044c"], ["\u706b\u7bad", "\u0420\u0430\u043a\u0435\u0442\u0430"], ["\u77a9\u76ee", "\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435"], ["\u6210\u5458", "\u0423\u0447\u0430\u0441\u0442\u043d\u0438\u043a"], ["\u4f5c\u8005", "\u0410\u0432\u0442\u043e\u0440"], ["\u6c99\u53d1", "\u041f\u0435\u0440\u0432\u044b\u0439 \u043a\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439"], ["\u79d2", "\u0441\u0435\u043a."], ["\u5929", "\u0434\u043d."], ["\u5468", "\u043d\u0435\u0434."]];
-walk(join(upstream,"src"));
-const cp=join(upstream,"src","client.ts"); let c=readFileSync(cp,"utf8");
-const old="const beaudarOrigin = script.src.match(\n  /^https:\\/\\/beaudar.lipk\\.org|http:\\/\\/localhost:\\d+/,\n)![0];\nconst frameUrl = `${beaudarOrigin}/beaudar.html`;'
-            new='const scriptUrl = new URL(script.src);\nconst beaudarOrigin = scriptUrl.origin;\nconst frameUrl = new URL("beaudar.html", scriptUrl.href).href;'
-            assert old in s, 'Beaudar origin block not found'
+            R=[
+              ("没有可预览的内容","Предпросмотр пока пуст"),
+              ("发表评论（Ctrl+Enter）","Опубликовать комментарий (Ctrl+Enter)"),
+              ("发表评论","Опубликовать комментарий"),
+              ("支持 Markdown 格式","Поддерживается Markdown"),
+              ("写下您的评论","Напишите комментарий"),
+              ("登录后评论","Войдите, чтобы оставить комментарий"),
+              ("加载预览中…","Загрузка предпросмотра…"),
+              ("加载更多","Загрузить ещё"),
+              ("加载中…","Загрузка…"),
+              ("还没有评论","Комментариев пока нет"),
+              ("评论","Комментарий"),
+              ("编辑","Редактировать"),
+              ("预览","Предпросмотр"),
+              ("刷新","Обновить"),
+              ("登录","Войти"),
+              ("刚刚","только что"),
+              ("系统消息","Системное сообщение"),
+              ("选择你的表情符号","Выбери реакцию"),
+              ("Token 请求失败","Ошибка получения токена"),
+              ("无法从 GitHub 获取数据","Не удалось получить данные GitHub"),
+              ("搜索 Issues 失败。","Не удалось выполнить поиск Issues."),
+              ("提取评论时出错。","Ошибка при получении комментариев."),
+              ("发布评论时出错","Ошибка при публикации комментария"),
+              ("创建评论 issue 时出错","Ошибка при создании Issue для комментариев"),
+              ("评论发布被禁止","Публикация комментариев запрещена"),
+            ]
+            for p in Path("src").rglob("*"):
+              if p.suffix not in (".ts",".html"): continue
+              s=p.read_text()
+              for a,b in R: s=s.replace(a,b)
+              p.write_text(s)
+            p=Path("src/client.ts"); s=p.read_text()
+            old="""const beaudarOrigin = script.src.match(
+  /^https:\/\/beaudar.lipk\.org|http:\/\/localhost:\d+/,
+)![0];
+const frameUrl = `${beaudarOrigin}/beaudar.html`;"""
+            new="""const scriptUrl = new URL(script.src);
+const beaudarOrigin = scriptUrl.origin;
+const frameUrl = new URL("beaudar.html", scriptUrl.href).href;"""
+            assert old in s
             p.write_text(s.replace(old,new))
-            p=Path('beaudar/src/beaudar.html'); s=p.read_text(); s=s.replace('<html lang="zh-cn">','<html lang="ru">').replace('<title>Beaudar\uff08\u8868\u8fbe\uff09</title>','<title>\u0401\u043a\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0438</title>').replace('\u4f7f\u7528 GitHub issue \u7684\u8f7b\u91cf\u7ea7\u8bc4\u8bba\u63d2\u4ef6\u3002\u5b98\u7f51\u5730\u5740: https://beaudar.lipk.org.','\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0438 \u0447\u0435\u0440\u0435\u0437 GitHub Issues.'); p.write_text(s)
+            p=Path("src/beaudar.html"); s=p.read_text()
+            s=s.replace("<html lang=\"zh-cn\">","<html lang=\"ru\">")
+            s=s.replace("<title>Beaudar（表达）</title>","<title>Комментарии</title>")
+            s=s.replace("使用 GitHub issue 的轻量级评论插件。官网地址: https://beaudar.lipk.org.","Комментарии через GitHub Issues.")
+            p.write_text(s)
           PY
           npm ci
           npm run build
