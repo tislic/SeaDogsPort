@@ -37,6 +37,8 @@
   {% assign slug = item | downcase | replace: ' ', '-' %}
   {% if slug == 'главная' %}
     <a href="{{ '/' | relative_url }}">{{ item }}</a>
+  {% elsif slug == 'обсуждение' %}
+    <a href="{{ '/discussion/' | relative_url }}">{{ item }}</a>
   {% else %}
     <a href="{{ '/' | append: slug | append: '/' | relative_url }}">{{ item }}</a>
   {% endif %}
