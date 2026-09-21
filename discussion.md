@@ -15,13 +15,4 @@ permalink: /discussion/
 
 </div>
 
-<script src="https://beaudar.lipk.org/client.js"
-        repo="tislic/SeaDogsPort"
-        issue-term="pathname"
-        branch="main"
-        position="bottom"
-        order="desc"
-        theme="preferred-color-scheme"
-        crossorigin="anonymous"
-        async>
-</script>
+<script src="/assets/beaudar/client.js" async></script>
