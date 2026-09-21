@@ -22,9 +22,56 @@ jobs:
           rm -rf beaudar-build
           git clone --depth 1 https://github.com/beaudar/beaudar.git beaudar-build
           cd beaudar-build
-          python3 -c 'exec("from pathlib import Path\nR=[("没有可预览的内容","Предпросмотр пока пуст"),("发表评论","Опубликовать комментарий"),("支持 Markdown 格式","Поддерживается Markdown"),("写下您的评论","Напишите комментарий"),("登录后评论","Войдите, чтобы оставить комментарий"),("加载预览中…","Загрузка предпросмотра…"),("加载更多","Загрузить ещё"),("加载中…","Загрузка…"),("还没有评论","Комментариев пока нет"),("评论","Комментарий"),("编辑","Редактировать"),("预览","Предпросмотр"),("刷新","Обновить"),("登录","Войти"),("系统消息","Системное сообщение"),("选择你的表情符号","Выбери реакцию"),("Token 请求失败","Ошибка получения токена"),("无法从 GitHub 获取数据","Не удалось получить данные GitHub"),("搜索 Issues 失败。","Не удалось выполнить поиск Issues."),("提取评论时出错。","Ошибка при получении комментариев."),("发布评论时出错","Ошибка при публикации комментария"),("创建评论 issue 时出错","Ошибка при создании Issue для комментариев"),("评论发布被禁止","Публикация комментариев запрещена")]\nfor p in Path("src").rglob("*"):\n if p.suffix in (".ts",".html"):\n  s=p.read_text()\n  for a,b in R: s=s.replace(a,b)\n  p.write_text(s)")'
-          python3 -c 'exec("from pathlib import Path\np=Path("src/client.ts");s=p.read_text();old="const beaudarOrigin = script.src.match(\\n  /^https:\\\\/\\\\/beaudar.lipk\\\\.org|http:\\\\/\\\\/localhost:\\\\d+/,\\n)![0];\\nconst frameUrl = `${beaudarOrigin}/beaudar.html`;";new="const scriptUrl = new URL(script.src);\\nconst beaudarOrigin = scriptUrl.origin;\\nconst frameUrl = new URL(\\"beaudar.html\\", scriptUrl.href).href;";assert old in s;p.write_text(s.replace(old,new))")'
-          python3 -c 'exec("from pathlib import Path\np=Path("src/beaudar.html");s=p.read_text();s=s.replace("<html lang=\\\"zh-cn\\\">","<html lang=\\\"ru\\\">").replace("<title>Beaudar（表达）</title>","<title>Комментарии</title>").replace("使用 GitHub issue 的轻量级评论插件。官网地址: https://beaudar.lipk.org.","Комментарии через GitHub Issues.");p.write_text(s)")'
+          python3 - <<'PY'
+from pathlib import Path
+R=[
+  ("没有可预览的内容","Предпросмотр пока пуст"),
+  ("发表评论","Опубликовать комментарий"),
+  ("支持 Markdown 格式","Поддерживается Markdown"),
+  ("写下您的评论","Напишите комментарий"),
+  ("登录后评论","Войдите, чтобы оставить комментарий"),
+  ("加载预览中…","Загрузка предпросмотра…"),
+  ("加载更多","Загрузить ещё"),
+  ("加载中…","Загрузка…"),
+  ("还没有评论","Комментариев пока нет"),
+  ("评论","Комментарий"),
+  ("编辑","Редактировать"),
+  ("预览","Предпросмотр"),
+  ("刷新","Обновить"),
+  ("登录","Войти"),
+  ("系统消息","Системное сообщение"),
+  ("选择你的表情符号","Выбери реакцию"),
+  ("Token 请求失败","Ошибка получения токена"),
+  ("无法从 GitHub 获取数据","Не удалось получить данные GitHub"),
+  ("搜索 Issues 失败。","Не удалось выполнить поиск Issues."),
+  ("提取评论时出错。","Ошибка при получении комментариев."),
+  ("发布评论时出错","Ошибка при публикации комментария"),
+  ("创建评论 issue 时出错","Ошибка при создании Issue для комментариев"),
+  ("评论发布被禁止","Публикация комментариев запрещена"),
+]
+for p in Path("src").rglob("*"):
+  if p.suffix in (".ts",".html"):
+    s=p.read_text()
+    for a,b in R: s=s.replace(a,b)
+    p.write_text(s)
+p=Path("src/client.ts")
+s=p.read_text()
+old="""const beaudarOrigin = script.src.match(
+  /^https://beaudar.lipk\.org|http://localhost:\d+/,
+)![0];
+const frameUrl = `${beaudarOrigin}/beaudar.html`;"""
+new="""const scriptUrl = new URL(script.src);
+const beaudarOrigin = scriptUrl.origin;
+const frameUrl = new URL("beaudar.html", scriptUrl.href).href;"""
+assert old in s
+p.write_text(s.replace(old,new))
+p=Path("src/beaudar.html")
+s=p.read_text()
+s=s.replace("<html lang=\"zh-cn\">","<html lang=\"ru\">")
+s=s.replace("<title>Beaudar（表达）</title>","<title>Комментарии</title>")
+s=s.replace("使用 GitHub issue 的轻量级评论插件。官网地址: https://beaudar.lipk.org.","Комментарии через GitHub Issues.")
+p.write_text(s)
+PY
           npm ci
           npm run build
           cd ..
