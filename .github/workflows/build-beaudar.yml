@@ -56,8 +56,8 @@ for p in Path("src").rglob("*"):
     p.write_text(s)
 p=Path("src/client.ts")
 s=p.read_text()
-old="""const beaudarOrigin = script.src.match(
-  /^https://beaudar.lipk\.org|http://localhost:\d+/,
+old=r"""const beaudarOrigin = script.src.match(
+  /^https:\/\/beaudar.lipk\.org|http:\/\/localhost:\d+/,
 )![0];
 const frameUrl = `${beaudarOrigin}/beaudar.html`;"""
 new="""const scriptUrl = new URL(script.src);
