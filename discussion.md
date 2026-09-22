@@ -11,5 +11,20 @@ permalink: /discussion/
   <div class="post-content" style="color:#4d5357; line-height:1.75;">
     Здесь можно задать вопрос, сообщить об ошибке или обсудить разработку проекта.
   </div>
-
+<script src="https://giscus.app/client.js"
+        data-repo="tislic/SeaDogsPort"
+        data-repo-id="R_kgDOMFs12w"
+        data-category="General"
+        data-category-id="DIC_kwDOMFs1284DF06g"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ru"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </div>
