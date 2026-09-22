@@ -15,12 +15,18 @@ permalink: /discussion/
 
 </div>
 
-<script
-  src="/assets/beaudar/client.js"
-  repo="tislic/SeaDogsPort"
-  issue-term="pathname"
-  theme="github-light"
-  input-position="top"
-  comment-order="desc"
-  async>
+<link rel="stylesheet" href="https://unpkg.com/octomments/build/ocs-ui.min.css">
+
+<div id="octomments"></div>
+
+<script src="https://unpkg.com/octomments/build/ocs.min.js"></script>
+<script>
+  Octomments({
+    github: {
+      owner: "tislic",
+      repo: "SeaDogsPort"
+    },
+    issueNumber: 8,
+    renderer: [OctommentsRenderer, "#octomments"]
+  }).init();
 </script>
