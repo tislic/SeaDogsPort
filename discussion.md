@@ -15,4 +15,12 @@ permalink: /discussion/
 
 </div>
 
-<script src="/assets/beaudar/client.js" async></script>
+<script
+  src="/assets/beaudar/client.js"
+  repo="tislic/SeaDogsPort"
+  issue-term="pathname"
+  theme="github-light"
+  input-position="top"
+  comment-order="desc"
+  async>
+</script>
