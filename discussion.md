@@ -9,7 +9,7 @@ permalink: /discussion/
   <h1 style="font-size:2rem; font-weight:normal; margin:0 0 20px;">Обсуждение</h1>
   <h3 style="font-size:1.5rem; font-weight:normal; margin:0 0 20px;">Таврена "Девятый вал"</h3>
   <div class="post-content" style="color:#4d5357; line-height:1.75;">
-    Здесь можно задать вопрос, сообщить об ошибке или обсудить разработку проекта.
+    Здесь можно задать вопрос, сообщить об ошибке или обсудить разработку проекта.<br>
   </div>
 <script src="https://giscus.app/client.js"
         data-repo="tislic/SeaDogsPort"
