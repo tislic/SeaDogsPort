@@ -71,7 +71,6 @@ jobs:
           s=s.replace("<title>Beaudar（表达）</title>","<title>Комментарии</title>")
           s=s.replace("使用 GitHub issue 的轻量级评论插件。官网地址: https://beaudar.lipk.org.","Комментарии через GitHub Issues.")
           p.write_text(s)
-          PY
           # Beaudar размещается не в корне сайта, а в /assets/beaudar/.
           # Просим Vite генерировать относительные пути к своим ресурсам.
           p=Path("config/vite.build-html.config.js")
@@ -80,6 +79,7 @@ jobs:
           assert marker in s
           s=s.replace(marker, marker+"\n  base: './',", 1)
           p.write_text(s)
+          PY
           npm ci
           npm run build
           cd ..
