@@ -7,7 +7,7 @@ permalink: /discussion/
 <div class="panel post" style="padding: 40px; background:rgba(255,253,248,.89);">
 
   <h1 style="font-size:2rem; font-weight:normal; margin:0 0 20px;">Обсуждение</h1>
-Таврена "Девятый вал" 
+  Таврена "Девятый вал"
   <div class="post-content" style="color:#4d5357; line-height:1.75;">
     Здесь можно задать вопрос, сообщить об ошибке или обсудить разработку проекта.
   </div>
