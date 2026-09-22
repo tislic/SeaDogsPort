@@ -13,7 +13,7 @@ permalink: /discussion/
   </div>
 
 
-</div>
+
 
 <link rel="stylesheet" href="https://unpkg.com/octomments/build/ocs-ui.min.css">
 
@@ -30,3 +30,4 @@ permalink: /discussion/
     renderer: [OctommentsRenderer, "#octomments"]
   }).init();
 </script>
+</div>
