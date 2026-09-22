@@ -12,22 +12,4 @@ permalink: /discussion/
     Здесь можно задать вопрос, сообщить об ошибке или обсудить разработку проекта.
   </div>
 
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/octomments/build/ocs-ui.min.css">
-
-<div id="octomments"></div>
-
-<script src="https://unpkg.com/octomments/build/ocs.min.js"></script>
-<script>
-  Octomments({
-    github: {
-      owner: "tislic",
-      repo: "SeaDogsPort"
-    },
-    issueNumber: 8,
-    renderer: [OctommentsRenderer, "#octomments"]
-  }).init();
-</script>
 </div>
