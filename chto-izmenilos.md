@@ -1,5 +1,5 @@
 ---
-layout: builds
+layout: post
 title: Что изменилось
 permalink: /chto-izmenilos/
 ---
