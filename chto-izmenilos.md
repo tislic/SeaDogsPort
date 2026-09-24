@@ -5,6 +5,9 @@ permalink: /chto-izmenilos/
 
 # Журнал изменений (Changelog)
 
+## 0.03
+....
+
 ## 0.02
 
 - Убрана поддержка ARMv7 + Neon (32-bit).
