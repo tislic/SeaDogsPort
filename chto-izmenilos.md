@@ -4,7 +4,7 @@ title: Что изменилось
 permalink: /chto-izmenilos/
 ---
 
-# Что изменилось
+# Changelog (журнал изменений)
 
 ## 0.02
 
