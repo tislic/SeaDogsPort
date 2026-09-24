@@ -1,5 +1,5 @@
 ---
-title: "Что изменилось"
+title: "Журнал изменений"
 layout: post
 permalink: /chto-izmenilos/
 ---
