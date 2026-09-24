@@ -1,4 +1,5 @@
 ---
+title: "Что изменилось"
 layout: post
 permalink: /chto-izmenilos/
 ---
