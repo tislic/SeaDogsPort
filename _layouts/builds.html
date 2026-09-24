@@ -2,6 +2,15 @@
 layout: default
 ---
 
+<!--
+  BUILDS — специальный layout только для страницы «Сборки».
+  Цепочка: сборки.md -> builds -> default.
+  Даёт странице контейнер .build-page; этот класс используется
+  также общим lightbox в default.html и стилями сборок в style.css.
+  Не удалять, пока сборки.md использует layout: builds.
+  Обычные страницы через него не оформлять.
+-->
+
 <article class="panel build-page">
   {{ content }}
 </article>
