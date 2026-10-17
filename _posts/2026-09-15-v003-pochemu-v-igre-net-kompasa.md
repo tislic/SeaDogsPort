@@ -2,7 +2,7 @@
 layout: post
 title: "Почему в игре нет компаса"
 date: 2026-09-15 21:00:00 +0300
-version: "Бета v0.03"
+version: "Версия v0.03"
 excerpt: "Идея визуализации ветра пришла не на пустом месте."
 tags: [Морская часть]
 image: /assets/images/wind-and-sails.jpg
