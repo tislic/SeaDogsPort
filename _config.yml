@@ -30,12 +30,12 @@ hero:
     text: "Полная версия игры для Android. Оригинальный геймплей, открытый мир, управление под тач."
 
 status:
-  version: v0.03
+  version: v0.03.11
   stage: Beta
   platform: Android
   engine: Unity
-  size: 29 МБ
-  updated: 15 сентября 2026
+  size: 31 МБ
+  updated: 18 октября 2026
 
 nav:
   dev:     ["Главная", "О проекте", "Сборки", "Обсуждение"]
