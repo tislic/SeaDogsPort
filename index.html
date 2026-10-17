@@ -16,10 +16,10 @@ layout: default
         <a class="btn primary" href="#">Скачать игру v1.0</a>
         <a class="btn secondary" href="#">Скриншоты</a>
       {% elsif phase == 'beta' %}
-        <a class="btn primary" href="{{ '/download/' | relative_url }}">Скачать бету v0.07</a>
+        <a class="btn primary" href="{{ '/download/' | relative_url }}?v={{ site.status.version | remove: 'v' }}">Скачать бету v0.07</a>
         <a class="btn secondary" href="#">Сообщить о баге</a>
       {% else %}
-        <a class="btn primary" href="{{ '/download/' | relative_url }}">Скачать текущую сборку</a>
+        <a class="btn primary" href="{{ '/download/' | relative_url }}?v={{ site.status.version | remove: 'v' }}">Скачать текущую сборку</a>
         <a class="btn secondary" href="{{ '/chto-izmenilos/' | relative_url }}">Что изменилось</a>
       {% endif %}
     </div>
